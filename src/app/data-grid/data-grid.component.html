@@ -1,0 +1,34 @@
+<div class="grid-container">
+  <h2>Rules Management</h2>
+
+  <!-- ag-Grid Table -->
+  <ag-grid-angular 
+    #agGrid
+    style="width: 100%; height: 400px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    rowSelection="multiple"
+  ></ag-grid-angular>
+
+  <h3>Add New Rule</h3>
+  <form (submit)="onFormSubmit()">
+    <label>Rule Name: <input type="text" [(ngModel)]="formData.ruleName" name="ruleName" required /></label>
+    <label>Type: <input type="text" [(ngModel)]="formData.type" name="type" required /></label>
+    <label>Sub Type: <input type="text" [(ngModel)]="formData.subType" name="subType" required /></label>
+    <label>Impact Level: <input type="text" [(ngModel)]="formData.impacted" name="impacted" required /></label>
+    <label>Last Scheduled Date: <input type="date" [(ngModel)]="formData.lastScheduledDate" name="lastScheduledDate" /></label>
+    <label>Alert: <input type="text" [(ngModel)]="formData.alert" name="alert" /></label>
+    <label>
+      <input type="checkbox" [(ngModel)]="formData.active" name="active" /> Active
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="formData.favourite" name="favourite" /> Favourite
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="formData.scheduled" name="scheduled" /> Scheduled
+    </label>
+    <button type="submit">Save</button>
+  </form>
+</div>
